@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend: HTML, CSS y JavaScript - UADE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- ===============================================
+       HTML: ESTRUCTURA Y CONTENIDO DE LA PÁGINA
+       =============================================== -->
+
+  <div class="container">
+    <!-- Header de la página -->
+    <header class="header">
+      <h1>Desarrollo Frontend</h1>
+      <p>HTML + CSS + JavaScript trabajando juntos</p>
+    </header>
+
+    <!-- Sección explicativa de las tecnologías -->
+    <section class="explanation">
+      <h2 class="demo-title">¿Qué es el Desarrollo Frontend?</h2>
+      <div class="highlight">
+        <p><strong>El desarrollo frontend</strong> es la parte del desarrollo web que se encarga de todo lo que los usuarios ven e interactúan en una página web. Es la "cara visible" de una aplicación web.</p>
+      </div>
+
+      <div class="tech-grid">
+        <!-- Tarjeta HTML -->
+        <div class="tech-card html-card">
+          <span class="tech-icon">🏗️</span>
+          <h3>HTML (HyperText Markup Language)</h3>
+          <p><strong>La estructura:</strong> Define el contenido y la estructura de la página. Es como el esqueleto de una casa - determina dónde van los títulos, párrafos, imágenes, botones, etc.</p>
+          <p><em>Ejemplo:</em> Los títulos, este texto, los botones y la estructura que ves están definidos en HTML.</p>
+        </div>
+
+        <!-- Tarjeta CSS -->
+        <div class="tech-card css-card">
+          <span class="tech-icon">🎨</span>
+          <h3>CSS (Cascading Style Sheets)</h3>
+          <p><strong>La presentación:</strong> Controla cómo se ve todo - colores, tamaños, posiciones, animaciones. Es como pintar y decorar la casa.</p>
+          <p><em>Ejemplo:</em> Los colores de fondo, el diseño de estas tarjetas, las animaciones y todo el estilo visual.</p>
+        </div>
+
+        <!-- Tarjeta JavaScript -->
+        <div class="tech-card js-card">
+          <span class="tech-icon">⚡</span>
+          <h3>JavaScript</h3>
+          <p><strong>La funcionalidad:</strong> Hace que la página sea interactiva y dinámica. Es como el sistema eléctrico de la casa - hace que las cosas funcionen.</p>
+          <p><em>Ejemplo:</em> Los botones que puedes presionar abajo, el contador, y todas las interacciones dinámicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección interactiva para demostrar JavaScript -->
+    <section class="interactive-demo">
+      <h2 class="demo-title">Demostración Interactiva</h2>
+      <p>Prueba estos ejemplos para ver JavaScript en acción:</p>
+
+      <!-- Ejemplo 1: Cambio de colores -->
+      <div class="demo-content">
+        <h3>1. Cambio de Estilos Dinámicos</h3>
+        <div id="colorDisplay" class="color-display">
+          ¡Haz clic en los botones para cambiar mi apariencia!
+        </div>
+
+        <div class="controls">
+          <button class="btn btn-danger" onclick="cambiarColor('rojo')">🔴 Rojo</button>
+          <button class="btn btn-success" onclick="cambiarColor('verde')">🟢 Verde</button>
+          <button class="btn btn-warning" onclick="cambiarColor('naranja')">🟠 Naranja</button>
+          <button class="btn" onclick="cambiarColor('original')">🔄 Original</button>
+        </div>
+
+        <!-- Ejemplo 2: Contador -->
+        <h3>2. Manipulación de Datos</h3>
+        <div class="counter-display">
+          <p>Contador de clics:</p>
+          <div id="contador" class="counter-number">0</div>
+          <div class="controls">
+            <button class="btn" onclick="incrementar()">➕ Sumar</button>
+            <button class="btn" onclick="decrementar()">➖ Restar</button>
+            <button class="btn btn-warning" onclick="resetear()">🔄 Resetear</button>
+          </div>
+        </div>
+
+        <!-- Ejemplo 3: Contenido dinámico -->
+        <h3>3. Generación de Contenido</h3>
+        <button class="btn btn-success" onclick="mostrarHora()">🕐 Mostrar Hora Actual</button>
+        <button class="btn btn-warning" onclick="generarSaludo()">👋 Generar Saludo</button>
+        <div id="contenidoDinamico" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; min-height: 50px;">
+          <em>El contenido generado aparecerá aquí...</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer explicativo -->
+    <footer class="footer">
+      <h3>Resumen: ¿Cómo trabajan juntos?</h3>
+      <p><strong>HTML</strong> crea la estructura → <strong>CSS</strong> la hace bonita → <strong>JavaScript</strong> la hace interactiva</p>
+      <p style="margin-top: 15px; opacity: 0.8;">Trabajo realizado para UADE - Diseño y Desarrollo Web</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
