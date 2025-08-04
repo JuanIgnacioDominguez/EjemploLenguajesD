@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend: HTML, CSS y JavaScript - UADE</title>
+  <style>
+    /* ===========================================
+       CSS: ESTILOS Y PRESENTACIÓN VISUAL
+       =========================================== */
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    /* Header principal */
+    .header {
+      background: linear-gradient(45deg, #2193b0, #6dd5ed);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* Sección explicativa */
+    .explanation {
+      padding: 40px;
+      background: #f8f9fa;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .tech-card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-top: 4px solid;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tech-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .html-card { border-color: #e34c26; }
+    .css-card { border-color: #1572b6; }
+    .js-card { border-color: #f7df1e; }
+
+    .tech-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .html-card .tech-icon { color: #e34c26; }
+    .css-card .tech-icon { color: #1572b6; }
+    .js-card .tech-icon { color: #f7df1e; }
+
+    .tech-card h3 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    .tech-card p {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Sección interactiva */
+    .interactive-demo {
+      padding: 40px;
+      background: white;
+      text-align: center;
+    }
+
+    .demo-title {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .demo-content {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .color-display {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      padding: 30px;
+      border-radius: 15px;
+      margin: 30px 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: all 0.5s ease;
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .btn {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .btn-danger {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    }
+
+    .btn-success {
+      background: linear-gradient(45deg, #4ecdc4, #44bd87);
+    }
+
+    .btn-warning {
+      background: linear-gradient(45deg, #ffa726, #fb8c00);
+    }
+
+    .counter-display {
+      background: #e9ecef;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      border: 2px solid #dee2e6;
+    }
+
+    .counter-number {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #495057;
+      margin: 10px 0;
+    }
+
+    .footer {
+      background: #343a40;
+      color: white;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .footer h3 {
+      margin-bottom: 15px;
+      color: #ffc107;
+    }
+
+    .highlight {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    /* Animaciones CSS */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===============================================
+       HTML: ESTRUCTURA Y CONTENIDO DE LA PÁGINA
+       =============================================== -->
+
+  <div class="container">
+    <!-- Header de la página -->
+    <header class="header">
+      <h1>Desarrollo Frontend</h1>
+      <p>HTML + CSS + JavaScript trabajando juntos</p>
+    </header>
+
+    <!-- Sección explicativa de las tecnologías -->
+    <section class="explanation">
+      <h2 class="demo-title">¿Qué es el Desarrollo Frontend?</h2>
+      <div class="highlight">
+        <p><strong>El desarrollo frontend</strong> es la parte del desarrollo web que se encarga de todo lo que los usuarios ven e interactúan en una página web. Es la "cara visible" de una aplicación web.</p>
+      </div>
+
+      <div class="tech-grid">
+        <!-- Tarjeta HTML -->
+        <div class="tech-card html-card">
+          <span class="tech-icon">🏗️</span>
+          <h3>HTML (HyperText Markup Language)</h3>
+          <p><strong>La estructura:</strong> Define el contenido y la estructura de la página. Es como el esqueleto de una casa - determina dónde van los títulos, párrafos, imágenes, botones, etc.</p>
+          <p><em>Ejemplo:</em> Los títulos, este texto, los botones y la estructura que ves están definidos en HTML.</p>
+        </div>
+
+        <!-- Tarjeta CSS -->
+        <div class="tech-card css-card">
+          <span class="tech-icon">🎨</span>
+          <h3>CSS (Cascading Style Sheets)</h3>
+          <p><strong>La presentación:</strong> Controla cómo se ve todo - colores, tamaños, posiciones, animaciones. Es como pintar y decorar la casa.</p>
+          <p><em>Ejemplo:</em> Los colores de fondo, el diseño de estas tarjetas, las animaciones y todo el estilo visual.</p>
+        </div>
+
+        <!-- Tarjeta JavaScript -->
+        <div class="tech-card js-card">
+          <span class="tech-icon">⚡</span>
+          <h3>JavaScript</h3>
+          <p><strong>La funcionalidad:</strong> Hace que la página sea interactiva y dinámica. Es como el sistema eléctrico de la casa - hace que las cosas funcionen.</p>
+          <p><em>Ejemplo:</em> Los botones que puedes presionar abajo, el contador, y todas las interacciones dinámicas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección interactiva para demostrar JavaScript -->
+    <section class="interactive-demo">
+      <h2 class="demo-title">Demostración Interactiva</h2>
+      <p>Prueba estos ejemplos para ver JavaScript en acción:</p>
+
+      <!-- Ejemplo 1: Cambio de colores -->
+      <div class="demo-content">
+        <h3>1. Cambio de Estilos Dinámicos</h3>
+        <div id="colorDisplay" class="color-display">
+          ¡Haz clic en los botones para cambiar mi apariencia!
+        </div>
+
+        <div class="controls">
+          <button class="btn btn-danger" onclick="cambiarColor('rojo')">🔴 Rojo</button>
+          <button class="btn btn-success" onclick="cambiarColor('verde')">🟢 Verde</button>
+          <button class="btn btn-warning" onclick="cambiarColor('naranja')">🟠 Naranja</button>
+          <button class="btn" onclick="cambiarColor('original')">🔄 Original</button>
+        </div>
+
+        <!-- Ejemplo 2: Contador -->
+        <h3>2. Manipulación de Datos</h3>
+        <div class="counter-display">
+          <p>Contador de clics:</p>
+          <div id="contador" class="counter-number">0</div>
+          <div class="controls">
+            <button class="btn" onclick="incrementar()">➕ Sumar</button>
+            <button class="btn" onclick="decrementar()">➖ Restar</button>
+            <button class="btn btn-warning" onclick="resetear()">🔄 Resetear</button>
+          </div>
+        </div>
+
+        <!-- Ejemplo 3: Contenido dinámico -->
+        <h3>3. Generación de Contenido</h3>
+        <button class="btn btn-success" onclick="mostrarHora()">🕐 Mostrar Hora Actual</button>
+        <button class="btn btn-warning" onclick="generarSaludo()">👋 Generar Saludo</button>
+        <div id="contenidoDinamico" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; min-height: 50px;">
+          <em>El contenido generado aparecerá aquí...</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer explicativo -->
+    <footer class="footer">
+      <h3>Resumen: ¿Cómo trabajan juntos?</h3>
+      <p><strong>HTML</strong> crea la estructura → <strong>CSS</strong> la hace bonita → <strong>JavaScript</strong> la hace interactiva</p>
+      <p style="margin-top: 15px; opacity: 0.8;">Trabajo realizado para UADE - Diseño y Desarrollo Web</p>
+    </footer>
+  </div>
+
+  <script>
+    /* ===============================================
+       JAVASCRIPT: COMPORTAMIENTO E INTERACTIVIDAD
+       =============================================== */
+
+    // Variable para el contador
+    let contador = 0;
+
+    // Función para cambiar colores del display
+    function cambiarColor(color) {
+      const display = document.getElementById('colorDisplay');
+      
+      switch(color) {
+        case 'rojo':
+          display.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+          display.textContent = '¡Ahora soy rojo! 🔴';
+          break;
+        case 'verde':
+          display.style.background = 'linear-gradient(45deg, #4ecdc4, #44bd87)';
+          display.textContent = '¡Ahora soy verde! 🟢';
+          break;
+        case 'naranja':
+          display.style.background = 'linear-gradient(45deg, #ffa726, #fb8c00)';
+          display.textContent = '¡Ahora soy naranja! 🟠';
+          break;
+        case 'original':
+          display.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4)';
+          display.textContent = '¡Volví al color original! 🌈';
+          break;
+      }
+      
+      // Agregar animación
+      display.classList.add('pulse');
+      setTimeout(() => {
+        display.classList.remove('pulse');
+      }, 1000);
+    }
+
+    // Función para incrementar contador
+    function incrementar() {
+      contador++;
+      document.getElementById('contador').textContent = contador;
+      
+      // Efecto visual
+      const contadorEl = document.getElementById('contador');
+      contadorEl.style.color = '#28a745';
+      setTimeout(() => {
+        contadorEl.style.color = '#495057';
+      }, 300);
+    }
+
+    // Función para decrementar contador
+    function decrementar() {
+      contador--;
+      document.getElementById('contador').textContent = contador;
+      
+      // Efecto visual
+      const contadorEl = document.getElementById('contador');
+      contadorEl.style.color = '#dc3545';
+      setTimeout(() => {
+        contadorEl.style.color = '#495057';
+      }, 300);
+    }
+
+    // Función para resetear contador
+    function resetear() {
+      contador = 0;
+      document.getElementById('contador').textContent = contador;
+      
+      // Efecto visual
+      const contadorEl = document.getElementById('contador');
+      contadorEl.style.color = '#ffc107';
+      setTimeout(() => {
+        contadorEl.style.color = '#495057';
+      }, 300);
+    }
+
+    // Función para mostrar hora actual
+    function mostrarHora() {
+      const ahora = new Date();
+      const horaFormateada = ahora.toLocaleString('es-AR', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      
+      document.getElementById('contenidoDinamico').innerHTML = `
+        <strong>🕐 Hora actual:</strong><br>
+        ${horaFormateada}
+      `;
+    }
+
+    // Función para generar saludo aleatorio
+    function generarSaludo() {
+      const saludos = [
+        '¡Hola! 👋 Bienvenido al mundo del frontend',
+        '¡Excelente! 🎉 Estás aprendiendo JavaScript',
+        '¡Fantástico! ⭐ El desarrollo web es increíble',
+        '¡Genial! 🚀 Sigue practicando y mejorando',
+        '¡Perfecto! 💡 Cada clic es una nueva interacción'
+      ];
+      
+      const saludoAleatorio = saludos[Math.floor(Math.random() * saludos.length)];
+      
+      document.getElementById('contenidoDinamico').innerHTML = `
+        <strong>💬 Mensaje generado:</strong><br>
+        ${saludoAleatorio}
+      `;
+    }
+
+    // Agregar animaciones al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      // Animar las tarjetas al cargar
+      const cards = document.querySelectorAll('.tech-card');
+      cards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('fade-in');
+        }, index * 200);
+      });
+      
+      console.log('🎉 ¡Página cargada! JavaScript está funcionando correctamente.');
+      console.log('📚 Este ejemplo muestra cómo HTML, CSS y JS trabajan juntos.');
+    });
+
+    // Función para mostrar información en consola (para estudiantes curiosos)
+    function mostrarInfoConsola() {
+      console.log('=== INFORMACIÓN PARA DESARROLLADORES ===');
+      console.log('🏗️ HTML: Define la estructura del documento');
+      console.log('🎨 CSS: Controla la presentación visual');
+      console.log('⚡ JavaScript: Añade interactividad y lógica');
+      console.log('=======================================');
+    }
+
+    // Llamar función informativa
+    mostrarInfoConsola();
+  </script>
+</body>
+</html>
